@@ -230,14 +230,13 @@ jobs:
           name: build
           path: build
 
-      - name: "UI Tests - Firefox - Mobile"
+      - name: "API tests"
         uses: cypress-io/github-action@v2
         with:
-          config: "viewportWidth=375,viewportHeight=667"
           start: yarn start:ci
           wait-on: "http://localhost:3000"
           wait-on-timeout: 120
-          browser: firefox
+          browser: chrome
           spec: cypress/tests/api/*
         env:
           # Recommended: pass the GitHub token lets this action correctly
